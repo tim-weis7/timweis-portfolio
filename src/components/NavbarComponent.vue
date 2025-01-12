@@ -2,9 +2,13 @@
 import { ref } from "vue";
 import deFlag from "../assets/icons/de-flag.png";
 import enFlag from "../assets/icons/us-flag.png";
+import { useRoute } from "vue-router";
 
 const currentLanguage = ref("de");
 const isDropdownOpen = ref(false);
+const route = useRoute();
+
+const isActive = (path: string) => route.path === path;
 
 const items = [
   { title: "HOME", route: "/" },
@@ -26,14 +30,25 @@ const changeLanguage = (lang: string) => {
 
 <template>
   <v-list class="display-flex d-flex">
-    <v-list-item v-for="item in items" :key="item.title" :to="item.route">
-      <v-list-item-title>{{ item.title }}</v-list-item-title>
+    <v-list-item
+      v-for="item in items"
+      :key="item.title"
+      :to="item.route"
+      :class="{ 'active-item': isActive(item.route) }"
+      :ripple="false"
+    >
+      <div class="cutsom-title">
+        {{ item.title }}
+        <span class="custom-line">test</span>
+      </div>
     </v-list-item>
     <v-list-item>
       <v-menu v-model="isDropdownOpen" bottom>
         <template v-slot:activator="{ props }">
           <div class="icon-wrapper">
-            <v-icon class="language-icon mr-5" v-bind="props">mdi-web</v-icon>
+            <v-icon class="language-icon ml-5 mr-5" v-bind="props"
+              >mdi-web</v-icon
+            >
             <img :src="languageFlags[currentLanguage]" class="language-flag" />
           </div>
         </template>
@@ -54,7 +69,7 @@ const changeLanguage = (lang: string) => {
   </v-list>
 </template>
 
-<style lang="css">
+<style>
 .icon-wrapper {
   position: relative;
   display: inline-block;
@@ -71,5 +86,33 @@ const changeLanguage = (lang: string) => {
   right: 12px;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.v-list-item {
+  color: wheat !important;
+  font-size: 20px !important;
+}
+
+.v-list-item__overlay {
+  opacity: 0 !important;
+}
+
+.custom-title {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.custom-line {
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: wheat;
+  margin: 0 auto;
+  margin-top: 7px;
+  transition: width 0.6s ease-in-out;
+}
+
+.active-item .custom-line {
+  width: 100%;
 }
 </style>

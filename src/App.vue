@@ -5,7 +5,7 @@ import NavbarComponent from "./components/NavbarComponent.vue";
 
 <template>
   <v-app>
-    <v-app-bar>
+    <v-app-bar class="custom-navbar">
       <v-row class="justify-end">
         <NavbarComponent />
       </v-row>
@@ -17,4 +17,8 @@ import NavbarComponent from "./components/NavbarComponent.vue";
   </v-app>
 </template>
 
-<style scoped></style>
+<style scoped>
+.custom-navbar {
+  box-shadow: none !important;
+}
+</style>
