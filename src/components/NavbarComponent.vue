@@ -69,7 +69,7 @@ const changeLanguage = (lang: string) => {
   </v-list>
 </template>
 
-<style>
+<style scoped lang="css">
 .icon-wrapper {
   position: relative;
   display: inline-block;
@@ -89,12 +89,8 @@ const changeLanguage = (lang: string) => {
 }
 
 .v-list-item {
-  color: wheat !important;
+  color: white !important;
   font-size: 20px !important;
-}
-
-.v-list-item__overlay {
-  opacity: 0 !important;
 }
 
 .custom-title {
@@ -106,7 +102,7 @@ const changeLanguage = (lang: string) => {
   display: block;
   width: 0;
   height: 1px;
-  background-color: wheat;
+  background-color: white;
   margin: 0 auto;
   margin-top: 7px;
   transition: width 0.6s ease-in-out;
