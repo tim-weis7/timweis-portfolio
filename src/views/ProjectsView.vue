@@ -25,7 +25,20 @@ const projects = [
     technologies: 'HTML, CSS, JavaScript',
     link: ''
   },
-  
+  {
+    name: 'Weitere...',
+    image: null,
+    description: '....................',
+    technologies: 'HTML, CSS, JavaScript',
+    link: ''
+  },
+  {
+    name: 'Weitere...',
+    image: null,
+    description: '....................',
+    technologies: 'HTML, CSS, JavaScript',
+    link: ''
+  },
 ];
 </script>
 
