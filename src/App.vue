@@ -7,19 +7,13 @@ import FooterComponent from "./components/FooterComponent.vue";
 <template>
   <div class="app-wrapper">
     <v-app>
-      <v-app-bar class="custom-navbar">
-        <v-row class="justify-end">
-          <NavbarComponent />
-        </v-row>
-      </v-app-bar>
+      <NavbarComponent />
 
       <v-main class="content-wrapper">
         <RouterView />
       </v-main>
 
-      <v-footer>
         <FooterComponent></FooterComponent>
-      </v-footer>
     </v-app>
   </div>
 </template>
