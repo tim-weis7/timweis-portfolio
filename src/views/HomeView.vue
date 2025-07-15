@@ -3,6 +3,7 @@ import { computed } from 'vue';
 import homeImage from '../assets/images/home-example.png';
 import { useRoute, useRouter } from "vue-router";
 import { useDisplay } from "vuetify";
+import TechnologyCarouselComponent from '../components/TechnologyCarouselComponent.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -57,22 +58,7 @@ const repeatedTechnologies = [...technologies, ...technologies];
     </v-col>
   </v-row>
 
-  <v-divider></v-divider>
-
-  <div class="carousel-wrapper">
-    <div class="carousel-track">
-      <div
-        v-for="(tech, index) in repeatedTechnologies"
-        :key="index"
-        class="carousel-item ma-5"
-      >
-        <v-avatar :size="isMobile ? 'small' : 'large'">
-          <img :src="tech.icon" :alt="tech.name" />
-        </v-avatar>
-        <div>{{ tech.name }}</div>
-      </div>
-    </div>
-  </div>
+  <TechnologyCarouselComponent></TechnologyCarouselComponent>
 </template>
 
 <style lang="css" scoped>
@@ -80,35 +66,4 @@ const repeatedTechnologies = [...technologies, ...technologies];
   text-align: left;
 }
 
-.v-avatar img {
-  filter: brightness(0) invert(1);
-}
-
-.carousel-wrapper {
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-  width: 100%;
-}
-
-.carousel-track {
-  display: inline-flex;
-  animation: scroll 60s linear infinite;
-}
-
-.carousel-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 2rem;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 </style>
