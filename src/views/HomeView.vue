@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import homeImage from '../assets/images/home-tim.png';
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 import { useDisplay } from "vuetify";
 import TechnologyCarouselComponent from '../components/TechnologyCarouselComponent.vue';
 
