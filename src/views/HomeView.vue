@@ -5,7 +5,6 @@ import { useRoute, useRouter } from "vue-router";
 import { useDisplay } from "vuetify";
 import TechnologyCarouselComponent from '../components/TechnologyCarouselComponent.vue';
 
-const route = useRoute();
 const router = useRouter();
 const navigateTo = (path: string) => router.push(path);
 const display = useDisplay();

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import deFlag from "../assets/icons/de-flag.png";
 import enFlag from "../assets/icons/us-flag.png";
 import { useRoute } from "vue-router";
 import { useDisplay } from "vuetify";
 
-const currentLanguage = ref("de");
+const currentLanguage = ref<'de' | 'en'>("de");
 const isDropdownOpen = ref(false);
 const drawer = ref(false);
 const route = useRoute();
@@ -26,7 +26,7 @@ const languageFlags = {
   en: enFlag,
 };
 
-const changeLanguage = (lang: string) => {
+const changeLanguage = (lang: 'de' | 'en') => {
   currentLanguage.value = lang;
   isDropdownOpen.value = false;
 };
