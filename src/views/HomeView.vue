@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import homeImage from '../assets/images/home-example.png';
+import homeImage from '../assets/images/home-tim.png';
 import { useRoute, useRouter } from "vue-router";
 import { useDisplay } from "vuetify";
 import TechnologyCarouselComponent from '../components/TechnologyCarouselComponent.vue';
@@ -10,26 +10,6 @@ const router = useRouter();
 const navigateTo = (path: string) => router.push(path);
 const display = useDisplay();
 const isMobile = computed(() => display.width.value <= 960);
-
-const technologies = [
-  { name: 'HTML5', icon: 'src/assets/icons/technologies/html5.svg' },
-  { name: 'CSS', icon: 'src/assets/icons/technologies/css.svg' },
-  { name: 'Tailwind CSS', icon: 'src/assets/icons/technologies/tailwindcss.svg' },
-  { name: 'JavaScript', icon: 'src/assets/icons/technologies/javascript.svg' },
-  { name: 'TypeScript', icon: 'src/assets/icons/technologies/typescript.svg' },
-  { name: 'Vue.js', icon: 'src/assets/icons/technologies/vuedotjs.svg' },
-  { name: 'React', icon: 'src/assets/icons/technologies/react.svg' },
-  { name: 'Angular', icon: 'src/assets/icons/technologies/angular.svg' },
-  { name: 'Vuetify', icon: 'src/assets/icons/technologies/vuetify.svg' },
-  { name: 'Spring Boot', icon: 'src/assets/icons/technologies/springboot.svg' },
-  { name: 'Node.js', icon: 'src/assets/icons/technologies/nodedotjs.svg' },
-  { name: 'PostgreSQL', icon: 'src/assets/icons/technologies/postgresql.svg' },
-  { name: 'Git', icon: 'src/assets/icons/technologies/git.svg' },
-  { name: 'GitHub', icon: 'src/assets/icons/technologies/github.svg' },
-  { name: 'GitKraken', icon: 'src/assets/icons/technologies/gitkraken.svg' }
-];
-
-const repeatedTechnologies = [...technologies, ...technologies];
 </script>
 
 <template>
@@ -54,16 +34,34 @@ const repeatedTechnologies = [...technologies, ...technologies];
     </v-col>
 
     <v-col cols="12" md="4">
-      <v-img :src="homeImage" height="500px" width="auto"></v-img>
+      <v-img :src="homeImage" height="500px" width="400px"></v-img>
     </v-col>
   </v-row>
 
-  <TechnologyCarouselComponent></TechnologyCarouselComponent>
+
+  <div class="fixed-carousel">
+    <TechnologyCarouselComponent></TechnologyCarouselComponent>
+  </div>
 </template>
 
 <style lang="css" scoped>
 .text-content {
   text-align: left;
+}
+
+.fixed-carousel {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+@media (max-width: 960px) {
+  .fixed-carousel {
+    position: static;
+  }
 }
 
 </style>

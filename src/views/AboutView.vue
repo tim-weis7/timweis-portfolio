@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import aboutImage from '../assets/images/about-example.png';
+import aboutImage from '../assets/images/about-tim.jpeg';
 
 import { ref } from 'vue';
 import TechnologyCarouselComponent from '../components/TechnologyCarouselComponent.vue';
@@ -24,7 +24,7 @@ Ich lerne gerne Neues, arbeite strukturiert und lösungsorientiert und freue mic
   </v-row>
   <v-row>
     <v-col cols="12" md="5">
-      <v-img :src="aboutImage" height="400px" width="400px"></v-img>  
+      <v-img :src="aboutImage" height="400px" width="300px"></v-img>  
     </v-col>
     <v-col cols="12" md="6">
       <p v-for="(line, index) in aboutText.split('\n')" class="about-text ma-3" :key="index">
@@ -32,7 +32,9 @@ Ich lerne gerne Neues, arbeite strukturiert und lösungsorientiert und freue mic
     </p>
     </v-col>
   </v-row>
-  <TechnologyCarouselComponent></TechnologyCarouselComponent>
+  <div class="fixed-carousel">
+    <TechnologyCarouselComponent></TechnologyCarouselComponent>
+  </div>
 </template>
 
 <style lang="css" scoped>
@@ -45,5 +47,20 @@ Ich lerne gerne Neues, arbeite strukturiert und lösungsorientiert und freue mic
   justify-self: center;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.fixed-carousel {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+@media (max-width: 960px) {
+  .fixed-carousel {
+    position: static;
+  }
 }
 </style>

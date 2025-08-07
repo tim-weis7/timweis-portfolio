@@ -13,8 +13,6 @@ const technologies = [
   { name: 'JavaScript', icon: 'src/assets/icons/technologies/javascript.svg' },
   { name: 'TypeScript', icon: 'src/assets/icons/technologies/typescript.svg' },
   { name: 'Vue.js', icon: 'src/assets/icons/technologies/vuedotjs.svg' },
-  { name: 'React', icon: 'src/assets/icons/technologies/react.svg' },
-  { name: 'Angular', icon: 'src/assets/icons/technologies/angular.svg' },
   { name: 'Vuetify', icon: 'src/assets/icons/technologies/vuetify.svg' },
   { name: 'Spring Boot', icon: 'src/assets/icons/technologies/springboot.svg' },
   { name: 'Node.js', icon: 'src/assets/icons/technologies/nodedotjs.svg' },

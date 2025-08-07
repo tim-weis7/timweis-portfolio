@@ -52,6 +52,7 @@ const projects = [
         v-for="project in projects"
         :key="project.name"
         cols="12"
+        md="6"
         sm="6"
       >
         <v-card class="project-card">
